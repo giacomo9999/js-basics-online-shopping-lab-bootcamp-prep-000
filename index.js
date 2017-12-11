@@ -53,18 +53,19 @@ function total() {
   return cartTotal;
 }
 
-function removeFromCart(item) {
-  var revCart = []
+function removeFromCart(item) 
+{
+  var oldLength = cart.length;
   for (var count = 0; count <= cart.length-1; count ++)
   {
     // cart[count] -- individual item:price object
     var itemInCart = Object.keys(cart[count])[0];
-    if (itemInCart != item)
-    {
-      revCart.push(cart[count]);
-    }
+    if (itemInCart === item)
+      var x = cart.splice(count,1); 
   }
-  return revCart;
+  
+  if (oldLength === cart.length)
+    console.log("That item is not in your cart.");
 }
 
 function placeOrder(cardNumber) {
